@@ -1,0 +1,87 @@
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form-register'}}) }}
+<div class="row">
+		<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+			<h2>Inscription</h2>
+		</div>
+	</div>
+<div class="row">
+	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+		{{ form_label(form.name)}}
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    		{{ form_widget(form.name, { 'attr': {'class': 'form-control', 'placeholder': 'Votre Nom'}}) }}
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+		{{ form_label(form.lastname)}}
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    		{{ form_widget(form.lastname, { 'attr': {'class': 'form-control', 'placeholder': 'Votre Prenom'}}) }}
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+		{{ form_label(form.username)}}
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    		{{ form_widget(form.username, { 'attr': {'class': 'form-control pseudo', 'placeholder': 'Votre Pseudo'}}) }}
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+		{{ form_label(form.birthday)}}
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+    		{{ form_widget(form.birthday, { 'attr': {'class': 'form-control'}}) }}
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+		{{ form_label(form.email)}}
+		<div class="input-group">
+			<span class="input-group-addon"><i>@</i></span>
+    		{{ form_widget(form.email, { 'attr': {'class': 'form-control email', 'placeholder': 'Votre Email'}}) }}
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+		{{ form_label(form.plainPassword.first)}}
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    		{{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': ' Mot de passe'}}) }}
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+		{{ form_label(form.plainPassword.second)}}
+		<div class="input-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    		{{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Retapez le mot de passe'}}) }}
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
+        <input class="login btn btn-lg" type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+</div>
+{{ form_end(form) }}
+
+

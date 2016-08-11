@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block menu %}{% include 'menu/index.html.twig' %}{% endblock %}
+
+{% block fos_user_content %}
+{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+{% endblock fos_user_content %}
+
+{% block footer %}{% include 'footer/index.html.twig' %}{% endblock %}
+	

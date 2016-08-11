@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}WildRio 2016{% endblock %}</title>
+        {% block stylesheets %}
+            <link href='https://fonts.googleapis.com/css?family=Caveat+Brush' rel='stylesheet' type='text/css'>
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+            <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" type="text/css" href="{{ asset('/vendors/bootstrap/dist/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('/WildRioCss/global/style.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('/WildRioCss/registration/registration.css') }}">
+        {% endblock %}
+        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body id="page-top" class="index">
+        <div class="container-fluid padd-row">
+            {% block menu %}{% endblock %}
+            {% block header %}{% endblock %}    
+            {% block body %}{% endblock %}
+            {% block fos_user_content %}{% endblock %}     
+            {% block footer %}{% endblock %}
+        </div>
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('/vendors/jquery/dist/jquery.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/WildRioJs/globaljs/global.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/WildRioJs/globaljs/validation.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/WildRioJs/globaljs/agency.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/WildRioJs/globaljs/contact.js') }}"></script>
+        {% endblock %}
+        
+    </body>
+</html>

@@ -1,0 +1,90 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.10deb1
+-- http://www.phpmyadmin.net
+--
+-- Client: localhost
+-- Généré le: Jeu 11 Août 2016 à 16:49
+-- Version du serveur: 5.5.49-0ubuntu0.14.04.1
+-- Version de PHP: 5.5.9-1ubuntu4.17
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de données: `WildRio`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `epreuve`
+--
+
+CREATE TABLE IF NOT EXISTS `epreuve` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `titre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Contenu de la table `epreuve`
+--
+
+INSERT INTO `epreuve` (`id`, `titre`, `path`, `description`) VALUES
+(3, 'ssssssssssssss', NULL, 'sssssssssssssss');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `username_canonical` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `email_canonical` varchar(180) COLLATE utf8_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `locked` tinyint(1) NOT NULL,
+  `expired` tinyint(1) NOT NULL,
+  `expires_at` datetime DEFAULT NULL,
+  `confirmation_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password_requested_at` datetime DEFAULT NULL,
+  `roles` longtext COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:array)',
+  `credentials_expired` tinyint(1) NOT NULL,
+  `credentials_expire_at` datetime DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lastname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `birthday` date NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_8D93D64992FC23A8` (`username_canonical`),
+  UNIQUE KEY `UNIQ_8D93D649A0D96FBF` (`email_canonical`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+
+--
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `name`, `lastname`, `birthday`) VALUES
+(3, 'iceman', 'iceman', 'kenni@yahoo.fr', 'kenni@yahoo.fr', 1, '61kyqedc3a80ooo4800csggk8csww08', '$2y$13$q9KxnqoYXq.mvWZj80wurekZWUQ7T7Z.WM3ioB/AjYa/dOjwxpED6', '2016-08-11 14:47:25', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL, 'kennouche', 'omar', '1976-06-21'),
+(4, 'tata', 'tata', '123456@yah.fr', '123456@yah.fr', 1, 'cepcduz0h4gscok0c0w084oswog44w4', '$2y$13$48SareuRG32PQSgTSnw8YuIECW07l7Iwm8WESXZ8Q1BAJYbeZOYsG', '2016-08-11 15:06:38', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL, 'tata', 'tata', '2012-10-10'),
+(5, 'titi', 'titi', 'jjj@yah.fr', 'jjj@yah.fr', 1, 'oubbu7a3we84so4gocog4kc8wwok8ks', '$2y$13$CpMeypVO8ypZoN8AzyJ4W.kaTjEfOK2il0LFKWDd2VWn6of6IuTVC', '2016-08-11 15:22:19', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL, 'titi', 'titi', '0000-00-00'),
+(6, 'aaaaaa', 'aaaaaa', 'aaaaa@yh.fr', 'aaaaa@yh.fr', 1, 'gmeyuxfmj7cww4wk4oksgcows8wkk4o', '$2y$13$z0H8J4KSmXqQByCQx24ccuuD7fvTUdyvuvAl/M51DT2lhJn8mHAQy', '2016-08-11 15:11:10', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL, 'aaaaa', 'aaaaa', '2012-10-10'),
+(7, 'dddddddddddddd', 'dddddddddddddd', '123456@yh.fr', '123456@yh.fr', 1, 'ceuqn9qegmoscs4swws88c4w40k44o', '$2y$13$C9xuyQ8wW1Ue60Ew0y7yeuhN3x9Oq52hC/V54BB0VRIaAqcU3poua', '2016-08-11 15:16:14', 0, 0, NULL, NULL, NULL, 'a:0:{}', 0, NULL, 'ddddddddddd', 'dddddddddddddd', '1002-12-16'),
+(8, 'rio', 'rio', 'kkk@yahoo.fr', 'kkk@yahoo.fr', 0, 'mktixvo36nks0ogsososokw844kwo48', '$2y$13$drnI5FbR8ERRWMuRn/9NruApVyoGMJUKMjnrwbgojo99zO2Ndaug2', NULL, 0, 0, NULL, 'wc7UgBhvLpX-gUVCqfR4xED4O_Mx2JReL5sOeBPP_LQ', NULL, 'a:0:{}', 0, NULL, 'rio', 'rio', '2013-12-12');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

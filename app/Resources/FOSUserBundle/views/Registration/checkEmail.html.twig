@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block menu %}{% include 'menu/index.html.twig' %}{% endblock %}
+
+{% block fos_user_content %}
+	<div class="check-mail">
+		<div class="jumbotron">
+			<div class="row">
+				<div class="col-lg-2 col-md-2">
+					<img class="img-lapin img-responsive" src="{{ asset('WildVillageImages/checkemail/success.png')}}" alt="image_lapin_cretin">
+		  		</div>
+		  		<div class="check-mail-title col-lg-10 col-md-10">
+	  				<h2>{{ 'registration.email.subject'|trans({'%lastname%': user.lastname}) }}</h2>
+	  				<p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+		  		</div>
+	  		</div>
+	  		<hr>
+	  		<div class="row">
+		  		<div class="wrap-check-btn">
+		  			<li><a class="btn btn-check btn-lg btn-block" href="{{ path('fos_user_security_login') }}">Se Connecter</a></li>
+		  		</div>
+	  		</div>			
+	  	</div>
+	</div>
+{% endblock fos_user_content %}
+
+{% block footer %}{% include 'footer/index.html.twig' %}{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Epreuve list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Path</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for epreuve in epreuves %}
+            <tr>
+                <td><a href="{{ path('epreuve_show', { 'id': epreuve.id }) }}">{{ epreuve.id }}</a></td>
+                <td>{{ epreuve.titre }}</td>
+                <td>{{ epreuve.path }}</td>
+                <td>{{ epreuve.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('epreuve_show', { 'id': epreuve.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('epreuve_edit', { 'id': epreuve.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('epreuve_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
